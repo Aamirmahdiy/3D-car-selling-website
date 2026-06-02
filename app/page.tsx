@@ -51,8 +51,7 @@ export default function Home() {
               </h1>
 
               <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
-                خودروهای باکیفیت، قیمت‌گذاری شفاف و پشتیبانی دوستانه. از ویترین تعاملی زیر با Spline
-                برای حس‌و‌حال کار استفاده کن.
+                خودروهای باکیفیت، قیمت‌گذاری شفاف و پشتیبانی سریع.  
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -85,7 +84,7 @@ export default function Home() {
         {/* Cars */}
         <section id="cars" className="mx-auto w-full max-w-6xl px-4 py-10">
           <h2 className="text-2xl font-semibold tracking-tight">منتخب‌های محبوب</h2>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-300">چند نمونه ساده برای صفحه فرود.</p>
+          <p className="mt-2 text-zinc-600 dark:text-zinc-300"> </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -137,7 +136,7 @@ export default function Home() {
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
                 {
-                  title: "قیمت‌گذاری شفاف",
+                  title: " بهترین قیمت‌",
                   desc: "بدون غافلگیری—از همان پیام اول عددهای روشن.",
                   icon: "💳",
                 },
