@@ -157,6 +157,23 @@ export default function ScrollVideoHero({
   const topRightRef = useRef<HTMLDivElement | null>(null);
   const bottomLeftRef = useRef<HTMLDivElement | null>(null);
 
+
+  useEffect(() => {
+    if (!ready) return;
+    if (titleRef.current) {
+      titleRef.current.style.opacity = "0";
+      titleRef.current.style.transform = "translate(-50%, 10px)";
+    }
+    if (topRightRef.current) {
+      topRightRef.current.style.opacity = "0";
+      topRightRef.current.style.transform = "translateY(12px)";
+    }
+    if (bottomLeftRef.current) {
+      bottomLeftRef.current.style.opacity = "0";
+      bottomLeftRef.current.style.transform = "translateY(12px)";
+    }
+  }, [ready]);
+
   useEffect(() => {
     if (!ready) return;
     const titleEl = titleRef.current;
@@ -167,46 +184,34 @@ export default function ScrollVideoHero({
 
     let raf = 0;
 
-    const timeline01 = () =>
-      clamp01(video.currentTime / Math.max(0.01, config.durationSeconds));
+    const durationSecondsLocal = Math.max(0.01, config.durationSeconds);
 
-    // We want:
-    // - "ماشین خوب" as the main title (like before)
-    // - "اوج کیفیت در حرکت" top-right, starting at 0s
-    // - "لوکس، مطمئن، متفاوت" bottom-left starting 1s later
-    const startMain = 0.1;
-    const endMain = 0.55;
+    const t01 = () => clamp01(video.currentTime / durationSecondsLocal);
 
-    const appearMain = (t: number) => {
-      const raw = (t - startMain) / Math.max(0.0001, endMain - startMain);
-      const eased = clamp01(raw);
-      return eased * eased * (3 - 2 * eased);
-    };
-
-    const appearWithDelay = (t: number, delaySeconds: number, durationSecondsLocal: number) => {
-      const delay01 = clamp01(delaySeconds / Math.max(0.01, durationSecondsLocal));
-      const start = delay01;
-      const end = clamp01(delay01 + (0.28)); // ~smooth window after delay
-      const raw = (t - start) / Math.max(0.0001, end - start);
+    // helper: start/end expressed in seconds for robustness (not 0..1 confusion)
+    const appearBetweenSeconds = (current01: number, startSec: number, endSec: number) => {
+      const start = clamp01(startSec / durationSecondsLocal);
+      const end = clamp01(endSec / durationSecondsLocal);
+      const raw = (current01 - start) / Math.max(0.0001, end - start);
       const eased = clamp01(raw);
       return eased * eased * (3 - 2 * eased);
     };
 
     const tick = () => {
-      const t = timeline01();
+      const current01 = t01();
 
-      // Main title
-      const mainOpacity = appearMain(t);
+      // Main title: start ~0.1s, finish ~3.8s (0.55 * 7s by default)
+      const mainOpacity = appearBetweenSeconds(current01, 0.1, durationSecondsLocal * 0.55);
       titleEl.style.opacity = String(mainOpacity);
       titleEl.style.transform = `translate(-50%, ${10 - 10 * mainOpacity}px)`;
 
-      // Top-right: appears immediately (0s)
-      const topOpacity = appearWithDelay(t, 0, config.durationSeconds);
+      // Top-right: visible from start
+      const topOpacity = appearBetweenSeconds(current01, 0, durationSecondsLocal * 0.28);
       topRightEl.style.opacity = String(topOpacity);
       topRightEl.style.transform = `translateY(${12 - 12 * topOpacity}px)`;
 
-      // Bottom-left: appears 1s later
-      const bottomOpacity = appearWithDelay(t, 1, config.durationSeconds);
+      // Bottom-left: after ~1s
+      const bottomOpacity = appearBetweenSeconds(current01, 1, 1 + durationSecondsLocal * 0.28);
       bottomLeftEl.style.opacity = String(bottomOpacity);
       bottomLeftEl.style.transform = `translateY(${12 - 12 * bottomOpacity}px)`;
 
@@ -240,7 +245,8 @@ export default function ScrollVideoHero({
             controls={false}
           />
 
-          {/* Title overlay (always above the header + video) */}
+          {/* Titles overlay (always above the video) */}
+          {/* Main center title */}
           <div
             className="pointer-events-none absolute left-1/2 top-4 z-50 w-full px-4"
             style={{ textAlign: "center" }}
@@ -251,6 +257,34 @@ export default function ScrollVideoHero({
               style={{ opacity: 0, transform: "translate(-50%, 10px)" }}
             >
               {title}
+            </div>
+          </div>
+
+          {/* Top-right title */}
+          <div
+            className="pointer-events-none absolute right-6 top-6 z-50 px-2"
+            style={{ direction: "rtl" }}
+          >
+            <div
+              ref={topRightRef}
+              className="font-extrabold text-black text-xl sm:text-3xl tracking-tight"
+              style={{ opacity: 0, transform: "translateY(12px)" }}
+            >
+              اوج کیفیت در حرکت
+            </div>
+          </div>
+
+          {/* Bottom-left title */}
+          <div
+            className="pointer-events-none absolute left-6 bottom-8 z-50 px-2"
+            style={{ direction: "rtl" }}
+          >
+            <div
+              ref={bottomLeftRef}
+              className="font-extrabold text-black text-xl sm:text-3xl tracking-tight"
+              style={{ opacity: 0, transform: "translateY(12px)" }}
+            >
+              لوکس، مطمئن، متفاوت
             </div>
           </div>
         </div>

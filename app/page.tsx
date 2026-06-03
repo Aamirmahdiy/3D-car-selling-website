@@ -4,7 +4,7 @@ import ScrollVideoHero from "./ScrollVideoHero";
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50" dir="rtl">
-      <header className="relative z-10 border-b border-black/5 bg-[#dfe7fd]/90 backdrop-blur dark:border-white/10 dark:bg-black/60">
+      <header className="relative border-b border-black/5 bg-[#dfe7fd]/90 backdrop-blur dark:border-white/10 dark:bg-black/60">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2 font-semibold tracking-tight">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-zinc-50 dark:text-black">
