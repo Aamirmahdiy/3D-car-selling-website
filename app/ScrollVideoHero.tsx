@@ -260,31 +260,35 @@ export default function ScrollVideoHero({
             </div>
           </div>
 
-          {/* Top-right title */}
+          {/* اوج کیفیت در حرکت (stacked words + per-word delayed appearance) */}
           <div
-            className="pointer-events-none absolute right-6 top-6 z-50 px-2"
+            className="pointer-events-none absolute right-50 top-20 z-50 px-2"
             style={{ direction: "rtl" }}
           >
-            <div
-              ref={topRightRef}
-              className="font-extrabold text-black text-xl sm:text-3xl tracking-tight"
-              style={{ opacity: 0, transform: "translateY(12px)" }}
-            >
-              اوج کیفیت در حرکت
+            <div ref={topRightRef} className="opacity-0 transform translate-y-3">
+              <div className="font-extrabold text-black text-xl sm:text-3xl tracking-tight leading-[1.25]">
+                <span className="block delay-0">اعتماد</span>
+                <span className="block delay-2">در</span>
+                <span className="block delay-3">معامله</span>
+              </div>
             </div>
           </div>
 
-          {/* Bottom-left title */}
+
+          {/* لوکس، مطمئن، متفاوت (stacked words + per-word delayed appearance) */}
           <div
-            className="pointer-events-none absolute left-6 bottom-8 z-50 px-2"
+            className="pointer-events-none absolute left-35 bottom-34 z-50 px-2"
             style={{ direction: "rtl" }}
           >
             <div
               ref={bottomLeftRef}
-              className="font-extrabold text-black text-xl sm:text-3xl tracking-tight"
-              style={{ opacity: 0, transform: "translateY(12px)" }}
+              className="opacity-0 transform translate-y-3"
             >
-              لوکس، مطمئن، متفاوت
+              <div className="font-extrabold text-black text-xl sm:text-3xl tracking-tight leading-[1.25]">
+                <span className="block delay-0">لوکس،</span>
+                <span className="block delay-1">مطمئن،</span>
+                <span className="block delay-2">متفاوت</span>
+              </div>
             </div>
           </div>
         </div>

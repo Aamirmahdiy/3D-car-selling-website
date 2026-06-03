@@ -4,35 +4,7 @@ import ScrollVideoHero from "./ScrollVideoHero";
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50" dir="rtl">
-      <header className="relative border-b border-black/5 bg-[#dfe7fd]/90 backdrop-blur dark:border-white/10 dark:bg-black/60">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-zinc-50 dark:text-black">
-              🚗
-            </span>
-            <span>ماشین خوب</span>
-          </div>
 
-          <nav className="hidden items-center gap-6 text-sm md:flex" aria-label="ناوبری">
-            <a className="hover:text-zinc-700 dark:hover:text-zinc-300" href="#cars">
-              خودروها
-            </a>
-            <a className="hover:text-zinc-700 dark:hover:text-zinc-300" href="#features">
-              چرا ما
-            </a>
-            <a className="hover:text-zinc-700 dark:hover:text-zinc-300" href="#contact">
-              تماس
-            </a>
-          </nav>
-
-          <a
-            className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-            href="#contact"
-          >
-            دریافت قیمت
-          </a>
-        </div>
-      </header>
 
       <main>
         {/* Hero (scroll-driven video) */}
