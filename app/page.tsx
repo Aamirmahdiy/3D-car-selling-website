@@ -3,7 +3,7 @@ import ScrollVideoHero from "./ScrollVideoHero";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50" dir="rtl">
+    <div className="min-h-screen bg-[#e1e5f2] text-zinc-900 dark:bg-black dark:text-zinc-50" dir="rtl">
 
 
       <main>
@@ -65,7 +65,7 @@ export default function Home() {
         {/* Features */}
         <section
           id="features"
-          className="border-y border-black/5 bg-white/60 py-10 dark:border-white/10 dark:bg-white/5"
+          className="border-y border-black/5 bg-[#e1e5f2] py-10 dark:border-white/10 dark:bg-white/5"
         >
           <div className="mx-auto w-full max-w-6xl px-4">
             <h2 className="text-2xl font-semibold tracking-tight">مشتریان چرا ما را انتخاب می‌کنند</h2>
@@ -127,7 +127,7 @@ export default function Home() {
         {/* Contact */}
         <section
           id="contact"
-          className="border-t border-black/5 bg-white/60 py-10 dark:border-white/10 dark:bg-white/5"
+          className="border-t border-black/5 bg-[#e1e5f2] py-10 dark:border-white/10 dark:bg-white/5"
         >
           <div className="mx-auto w-full max-w-6xl px-4">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">

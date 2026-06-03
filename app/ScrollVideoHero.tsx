@@ -285,8 +285,8 @@ export default function ScrollVideoHero({
               className="opacity-0 transform translate-y-3"
             >
               <div className="font-extrabold text-black text-xl sm:text-3xl tracking-tight leading-[1.25]">
-                <span className="block delay-0">لوکس،</span>
-                <span className="block delay-1">مطمئن،</span>
+                <span className="block delay-0">لوکس</span>
+                <span className="block delay-1">مطمئن</span>
                 <span className="block delay-2">متفاوت</span>
               </div>
             </div>
