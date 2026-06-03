@@ -1,16 +1,16 @@
-import Spline from "@splinetool/react-spline/next";
 import ContactForm from "./contact-form";
+import ScrollVideoHero from "./ScrollVideoHero";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50" dir="rtl">
-      <header className="sticky top-0 z-10 border-b border-black/5 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/60">
+      <header className="relative z-10 border-b border-black/5 bg-[#dfe7fd]/90 backdrop-blur dark:border-white/10 dark:bg-black/60">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2 font-semibold tracking-tight">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-zinc-50 dark:text-black">
               🚗
             </span>
-            <span>خودرو خوب</span>
+            <span>ماشین خوب</span>
           </div>
 
           <nav className="hidden items-center gap-6 text-sm md:flex" aria-label="ناوبری">
@@ -35,51 +35,16 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Hero */}
-        <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-50 via-zinc-50 to-white dark:from-black dark:via-black dark:to-zinc-950" />
+        {/* Hero (scroll-driven video) */}
+        <ScrollVideoHero
+          src="/video/Hailuo_Video_Ultra-realistic 7-second cinem_518210243368067076.mp4"
+          durationSeconds={7}
+          scrollFactorVh={2}
+          title="ماشین خوب"
+        />
 
-          <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10 md:flex-row md:items-center md:py-16">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs dark:border-white/10 dark:bg-white/5">
-                <span className="text-lg">⚡</span>
-                معاملات مطمئن • فرایند سریع
-              </div>
+        {/* Remaining landing content */}
 
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-                خودروی بعدی‌ات را سریع‌تر پیدا کن.
-              </h1>
-
-              <p className="mt-3 max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
-                خودروهای باکیفیت، قیمت‌گذاری شفاف و پشتیبانی سریع.  
-              </p>
-
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a
-                  className="flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-                  href="#cars"
-                >
-                  مشاهده خودروها
-                </a>
-
-                <a
-                  className="flex items-center justify-center rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-zinc-50 dark:hover:bg-white/10"
-                  href="#contact"
-                >
-                  صحبت با فروش
-                </a>
-              </div>
-            </div>
-
-            <div className="flex-1">
-              <div className="overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
-                <div className="aspect-[4/3] w-full">
-                  <Spline scene="https://prod.spline.design/KJaxneQ1H4B0-Tmq/scene.splinecode" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Cars */}
         <section id="cars" className="mx-auto w-full max-w-6xl px-4 py-10">
@@ -208,7 +173,7 @@ export default function Home() {
 
       <footer className="border-t border-black/5 py-6 text-sm text-zinc-600 dark:border-white/10 dark:text-zinc-300">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4">
-          <span>© {new Date().getFullYear()} خودرو خوب</span>
+          <span>© {new Date().getFullYear()} ماشین خوب</span>
           <a className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-50" href="#contact">
             دریافت قیمت
           </a>
